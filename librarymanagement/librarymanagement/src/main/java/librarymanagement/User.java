@@ -8,7 +8,7 @@ public class User extends Librarian {
 	String password;
 	Boolean isapproved = true;
 	Boolean isRented = false;// Defaultly user not rent any books.
-	Boolean isInitialChanged = false; 
+	Boolean isInitialChanged = false;
 	int totalPenality = 0;
 	int monthDays[] = { 31, 28, 31, 30, 31, 30,
 			31, 31, 30, 31, 30, 31 };
@@ -50,7 +50,7 @@ public class User extends Librarian {
 	public void rent_books_by_category() {
 		System.out.println("Enter the category of the book:");
 		String cat = input.nextLine();
-		//input.nextLine();
+		// input.nextLine();
 		if (getCategory(cat) != null) {
 			if (getCategory(cat).books.isEmpty()) {
 				System.out.println("This category is empty now!");
@@ -60,13 +60,14 @@ public class User extends Librarian {
 				temp.display();
 				System.out.println("Enter the book title.");
 				String title = input.nextLine();
-				//input.nextLine();
+				// input.nextLine();
 				if (temp.get_book(title) != null) {
 					if (temp.get_book(title).current_Quantity != 0) {
 						Book tempBook = temp.get_book(title);
 						System.out.println(
 								"How many books do you want to rent?(Maximum " + tempBook.current_Quantity + " )");
 						int noOfBooks = input.nextInt();
+						input.nextLine();
 						if (noOfBooks <= tempBook.current_Quantity) {
 							if (noOfBooks <= 0) {
 								System.out.println("Invalid value!");
@@ -93,7 +94,7 @@ public class User extends Librarian {
 		} else {
 			System.out.println("The given category is not available!");
 		}
-		//input.nextLine();
+		// input.nextLine();
 	}
 
 	public void browse_books_by_category() {
@@ -262,11 +263,11 @@ public class User extends Librarian {
 
 	private void searchByTitle() {
 		System.out.println("Enter the book title:");
-		//input.nextLine();
+		// input.nextLine();
 		String[] titles = input.nextLine().trim().split("\\s+");
 		System.out.println("|\tTitle\t|\tAuthors\t|\tCategory name\t|\tRating\t|\tAvailable Books\t|\n");
 		for (String title : titles) {
-			System.out.println("\nThese are the some books matched with '"+title+"'.\n");
+			System.out.println("\nThese are the some books matched with '" + title + "'.\n");
 			for (String cat : All_cat.keySet()) {
 				Category temp = All_cat.get(cat);
 				for (String book : temp.books.keySet()) {
@@ -283,11 +284,11 @@ public class User extends Librarian {
 
 	private void searchByAuthor() {
 		System.out.println("Enter the author name:");
-		//input.nextLine();
+		// input.nextLine();
 		String[] authorName = input.nextLine().trim().split("\\s+");
 		System.out.println("|\tTitle\t|\tAuthors\t|\tCategory name\t|\tRating\t|\tAvailable Books\t|\n");
 		for (String author : authorName) {
-			System.out.println("\nThese are the some author names matched with '"+author+"'.\n");
+			System.out.println("\nThese are the some author names matched with '" + author + "'.\n");
 			for (String cat : All_cat.keySet()) {
 				Category temp = All_cat.get(cat);
 				for (Book book : temp.books.values()) {
@@ -305,7 +306,7 @@ public class User extends Librarian {
 		System.out.println("Enter the book rating:");
 		int rat = input.nextInt();
 		input.nextLine();
-		System.out.println("These are the some books with the '"+rat+"' rating.");
+		System.out.println("These are the some books with the '" + rat + "' rating.");
 		System.out.println("|\tTitle\t|\tAuthors\t|\tCategory name\t|\tRating\t|\tAvailable Books\t|\n");
 		for (String cat : All_cat.keySet()) {
 			Category temp = All_cat.get(cat);
