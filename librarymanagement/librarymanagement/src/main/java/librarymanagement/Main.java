@@ -11,7 +11,7 @@ public class Main {
 		Librarian my_library = new Librarian();
 		int choice;
 		LocalDate today = LocalDate.now();
-		my_library.current_date.set(today.getDayOfMonth(),today.getMonthValue(),today.getYear());
+		Librarian.current_date.set(today.getDayOfMonth(),today.getMonthValue(),today.getYear());
 		do {
 
 			System.out.println("Welcome to library");
