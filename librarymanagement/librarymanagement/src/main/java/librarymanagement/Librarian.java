@@ -7,7 +7,7 @@ public class Librarian {
 	public static HashMap<String, Category> All_cat = new HashMap<>();
 	public static ArrayList<Book> RentedBooks = new ArrayList<>();
 	static int FORDAY1 = 1, FORDAY2 = 5, FORDAY3 = 10, FORDAY4 = 50, DUE = 7;
-	static Date current_date = new Date();
+	Date current_date = new Date();
 	String name = "Mohan", password = "pass";
 	Scanner input = new Scanner(System.in);
 
